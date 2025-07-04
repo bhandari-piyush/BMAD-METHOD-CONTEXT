@@ -28,6 +28,7 @@ Foundations in Agentic Agile Driven Development, known as the Breakthrough Metho
 
 - **[Build software with Full Stack Agile AI Team](#-quick-start)** → Quick Start Instruction
 - **[Learn how to use BMAD](docs/user-guide.md)** → Complete user guide and walkthrough
+- **[Optimize AI context management](#context-engineering)** → Smart context handoff and compression
 - **[See available AI agents](#available-agents)** → Specialized roles for your team
 - **[Explore non-technical uses](#-beyond-software-development---expansion-packs)** → Creative writing, business, wellness, education
 - **[Create my own AI agents](#creating-your-own-expansion-pack)** → Build agents for your domain
@@ -37,7 +38,7 @@ Foundations in Agentic Agile Driven Development, known as the Breakthrough Metho
 
 ### Popular Use Cases
 
-- **Software Development** - [Quick Start](#-quick-start) | [User Guide](docs/user-guide.md) | [Workflow Guides](#documentation--guides)
+- **Software Development** - [Quick Start](#-quick-start) | [User Guide](docs/user-guide.md) | [Context Engineering](#context-engineering)
 - **Game Development** - [2D Phaser Pack](expansion-packs/bmad-2d-phaser-game-dev/)
 - **Business Strategy** - [Full Guide](docs/expansion-packs.md#business-strategy-pack)
 - **Creative Writing** - [Full Guide](docs/expansion-packs.md#creative-writing-pack)
@@ -201,6 +202,54 @@ Templates are unique in that they are embedded with the LLM instructions also fo
 ### Slash Star Commands
 
 Ask the agent you are using for help with /help (in the web) or \*help in the ide to see what commands are available!
+
+### Context Engineering
+
+**Smart Context Management for Efficient AI Collaboration**
+
+BMad v4+ includes sophisticated context engineering capabilities that optimize information sharing between agents and maintain lean development workflows.
+
+#### Key Features
+
+- **Intelligent Context Compression** - Automatically reduces context size while preserving critical information
+- **Cross-Agent Context Handoff** - Seamless information transfer between specialized agents (PM → Architect → Dev)
+- **Lean Dev Optimization** - Keeps development agents under 2000 tokens for faster, focused coding
+- **Rich Planning Context** - Enables planning agents to access up to 8000 tokens for comprehensive analysis
+- **Context Validation** - Built-in security and quality validation for all context operations
+
+#### Quick Context Workflows
+
+**Planning to Development Handoff:**
+```bash
+# 1. PM creates comprehensive PRD with full context
+*agent pm
+*task create-doc  # Creates detailed PRD with market research
+
+# 2. Architect receives optimized context summary  
+*agent architect
+*task context-handoff  # Gets compressed PRD essentials for architecture
+
+# 3. Dev receives lean, code-focused context
+*agent dev
+*task context-handoff  # Gets only implementation details needed
+```
+
+**Multi-Agent Collaboration:**
+```bash
+# Analyst research → PM strategy → Architect design
+*agent analyst → *task create-doc → *task context-handoff
+*agent pm → *task context-handoff → *task create-doc  
+*agent architect → *task context-handoff → *task create-doc
+```
+
+#### Context Optimization Types
+
+- **Universal Tasks**: `context-optimization`, `context-handoff`, `context-validation`
+- **Planning Agent Tools**: `context-retrieval`, `context-memory-management`  
+- **Dev Agent Tools**: `context-compression`, `context-filtering`
+- **Templates**: `context-handoff-tmpl.md`, `context-summary-tmpl.md`
+
+> 💡 **Tip**: Context engineering runs automatically when switching between agents. For manual optimization, use `*task context-optimization` with any agent.
 
 ### Advanced Elicitation
 

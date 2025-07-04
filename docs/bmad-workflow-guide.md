@@ -105,6 +105,151 @@ Follow the SM → Dev cycle for systematic story development:
 - **Dev**: Implement story → Complete → Mark done
 - **Continue**: Until all features implemented
 
+## Context-Aware Workflows
+
+BMAD v4+ includes intelligent context management that optimizes information flow between agents and maintains efficient development workflows.
+
+### When to Use Context Tools
+
+#### Automatic Context Management
+Context engineering runs automatically during agent transitions, but you can manually trigger optimization when needed:
+
+**Use `*task context-optimization` when:**
+- Working with large documents (PRD/Architecture >5000 tokens)
+- Switching between multiple planning agents in sequence
+- Performance feels slow due to context size
+- Need to focus agent attention on specific sections
+
+**Use `*task context-handoff` when:**
+- Transferring complex information between agent types
+- Moving from planning (PM/Architect) to development (Dev)
+- Sharing research findings between Analyst and PM
+- Passing design decisions from UX Expert to Architect
+
+**Use `*task context-validation` when:**
+- Working with sensitive business information
+- Ensuring context quality before critical decisions
+- Troubleshooting context-related issues
+- Auditing information flow between agents
+
+### Context Transfer Examples
+
+#### Example 1: Research to Planning Pipeline
+```bash
+# 1. Analyst conducts market research
+*agent analyst
+*task create-doc  # Creates comprehensive market analysis
+
+# 2. Transfer findings to PM with context optimization
+*task context-handoff
+# Result: Compressed market insights for product planning
+
+# 3. PM creates PRD with optimized context
+*agent pm
+*task create-doc  # Builds on analyst findings efficiently
+```
+
+#### Example 2: Planning to Development Handoff
+```bash
+# 1. PM completes PRD (large document with business context)
+*agent pm
+*task create-doc  # Full PRD with market research, user stories
+
+# 2. Architect receives filtered technical context
+*agent architect
+*task context-handoff  # Gets PRD essentials for architecture design
+*task create-doc  # Creates technical architecture
+
+# 3. Dev receives lean implementation context
+*agent dev
+*task context-handoff  # Gets only code-relevant specifications
+# Auto-optimized for 2000 token development workflow
+```
+
+#### Example 3: Iterative Story Development with Context
+```bash
+# Enhanced SM → Dev cycle with context optimization
+
+# Scrum Master creates detailed story
+*agent sm
+*task create-next-story  # Detailed user story with acceptance criteria
+
+# Context automatically optimized for Dev handoff
+*agent dev
+# Receives: Core requirements, technical specs, task breakdown
+# Filtered out: Business justification, market analysis, long discussions
+```
+
+### Context Workflow Integration
+
+#### Phase 2 Enhancement: Gemini Planning with Context Preparation
+When working in Gemini for planning, prepare context for efficient IDE handoff:
+
+```text
+"Create this PRD with clear technical sections that can be 
+easily handed off to development teams. Include a summary 
+section for architecture handoff."
+```
+
+#### Phase 3 Enhancement: Document Organization with Context Sharding
+```bash
+# bmad-master with context-aware document sharding
+*agent bmad-master
+*shard-doc docs/prd.md prd --context-optimize
+*shard-doc docs/architecture.md architecture --context-optimize
+
+# Result: Each shard optimized for specific agent consumption
+```
+
+#### Phase 4 Enhancement: Context-Optimized Development Cycle
+```bash
+# Story creation with automatic context filtering
+*agent sm
+*create-next-story
+# Automatically filters previous stories and PRD for relevant context
+
+# Development with lean context focus  
+*agent dev
+# Receives: Current story, technical requirements, code context only
+# Excluded: Business discussions, alternative approaches, planning debates
+```
+
+### Context Decision Guide
+
+**Choose Planning Agent Context (8000 tokens) for:**
+- Comprehensive analysis and decision-making
+- Multi-factor consideration (business + technical + user)
+- Strategic planning and architecture design
+- Cross-functional collaboration needs
+
+**Choose Dev Agent Context (2000 tokens) for:**
+- Implementation and coding tasks
+- Focused technical problem-solving
+- Code review and debugging
+- Performance-critical development workflows
+
+**Manual Context Management when:**
+- Working on complex, long-running projects
+- Context seems unfocused or too broad
+- Agent responses become less relevant
+- Need to audit what information agents are receiving
+
+### Context Quality Indicators
+
+**Healthy Context:**
+- Agent responses directly address your request
+- Relevant previous decisions are referenced
+- No repetition of irrelevant information
+- Fast, focused agent performance
+
+**Context Needs Optimization:**
+- Agent responses seem unfocused or generic
+- Irrelevant historical information mentioned
+- Slow response times or performance issues
+- Agent asks for information you've already provided
+
+> 💡 **Pro Tip**: Use `*status` with any agent to see current context size and optimization status.
+
 ## IDE-Specific Syntax
 
 ### Agent Loading Syntax by IDE:
