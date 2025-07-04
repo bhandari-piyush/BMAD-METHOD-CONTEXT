@@ -28,12 +28,15 @@ Context Engineering in BMAD v4+ represents a sophisticated approach to AI collab
 ### Agent Classification
 
 **💻 Development Agents (Lean Context - 2000 tokens)**
+
 - `dev` - Optimized for fast, focused implementation
 
 **📱 Planning Agents (Rich Context - 8000 tokens)**
+
 - `pm`, `architect`, `analyst`, `ux-expert`, `qa`, `sm`, `po` - Full context for strategic decisions
 
 **🎭 Universal Orchestrator**
+
 - `bmad-orchestrator` - Adaptive context based on current task
 
 ## Core Concepts
@@ -58,22 +61,73 @@ Context tools prioritize information based on:
 ### Automatic vs Manual Context Management
 
 **Automatic (Default)**:
+
 - Triggered when switching between agents
 - Uses predefined optimization rules
 - Maintains agent-specific token limits
 - No user intervention required
 
 **Manual (Advanced)**:
+
 - Explicit context optimization commands
 - Custom compression parameters
 - Targeted context validation
 - Debugging and troubleshooting
+
+## Enhanced Agent Capabilities (v4.23+)
+
+### Rich Context Enhancement Overview
+
+**New in BMAD v4.23+**: All planning agents now have advanced context capabilities with intelligent retrieval, long-term memory, and semantic search. This represents a major upgrade in agent intelligence and collaboration.
+
+### Agent Enhancement Matrix
+
+| Agent                    | Rich Context Features                 | New Capabilities                                     | Key Benefits                    |
+| ------------------------ | ------------------------------------- | ---------------------------------------------------- | ------------------------------- |
+| **🎭 bmad-orchestrator** | Advanced orchestration + 4 rich utils | Semantic context coordination, cross-agent memory    | Intelligent workflow management |
+| **🏗️ architect**         | Technical context management          | Architecture pattern retrieval, tech decision memory | Consistent technical decisions  |
+| **📋 pm**                | Product context management            | Market research retrieval, strategy memory           | Data-driven product decisions   |
+| **📝 po**                | Backlog & user journey context        | Story pattern library, sprint retrospectives         | Improved story quality          |
+| **📊 analyst**           | Business analysis context             | Research methodology memory, insight patterns        | Deeper business analysis        |
+| **🎨 ux-expert**         | Design pattern context                | UX pattern library, design system evolution          | Consistent design patterns      |
+| **🧪 qa**                | Test strategy context                 | Testing methodology retention, quality metrics       | Comprehensive quality assurance |
+| **🏃 sm**                | Team dynamics context                 | Velocity patterns, retrospective insights            | Optimized team performance      |
+
+### Rich Context Dependency Structure
+
+**Planning Agents Now Have**:
+
+- **9 Total Dependencies** (5 foundation + 4 rich)
+- **Foundation**: context-optimization, context-handoff, context-validation, context-compression, context-filtering
+- **Rich**: context-retrieval, context-memory-management, semantic-search, context-analysis
+
+**Development Agent Remains Lean**:
+
+- **5 Foundation Dependencies** only (optimized for fast implementation)
+
+### Cross-Agent Context Sharing
+
+Rich context enables sophisticated agent collaboration:
+
+```bash
+# Store context for cross-agent use
+*agent pm
+*task context-memory-management --action="store" --tag="product-strategy" --share="architect,po"
+
+# Retrieve cross-agent insights
+*agent architect
+*task context-retrieval --topic="product-strategy" --source="pm" --focus="technical-constraints"
+
+# Semantic search across agent knowledge
+*utils semantic-search --query="user authentication requirements" --agents="pm,ux-expert,qa"
+```
 
 ## Context Tools Reference
 
 ### Universal Tasks (All Agents)
 
 #### `context-optimization`
+
 **Purpose**: Compress and optimize current context for better performance
 **When to Use**: Large documents, performance issues, focus problems
 
@@ -86,12 +140,14 @@ Context tools prioritize information based on:
 ```
 
 **Output**:
+
 - Optimized context summary
 - Compression ratio achieved
 - Key information preserved
 - Items filtered out
 
 #### `context-handoff`
+
 **Purpose**: Transfer information between agents with optimization
 **When to Use**: Agent switching, cross-functional collaboration
 
@@ -103,12 +159,14 @@ Context tools prioritize information based on:
 ```
 
 **Output**:
+
 - Agent-optimized context summary
 - Handoff quality score
 - Information transfer log
 - Validation results
 
 #### `context-validation`
+
 **Purpose**: Verify context quality and security
 **When to Use**: Sensitive information, quality assurance, troubleshooting
 
@@ -118,6 +176,7 @@ Context tools prioritize information based on:
 ```
 
 **Output**:
+
 - Validation report
 - Quality metrics
 - Security clearance status
@@ -126,30 +185,77 @@ Context tools prioritize information based on:
 ### Planning Agent Tools (Rich Context Only)
 
 #### `context-retrieval`
-**Purpose**: Recover detailed context from compressed summaries
-**When to Use**: Need historical detail, comprehensive analysis
+
+**Purpose**: Advanced semantic search and intelligent information discovery
+**When to Use**: Need historical detail, comprehensive analysis, cross-project patterns
 
 ```bash
 *task context-retrieval --topic="architecture decisions"
+*task context-retrieval --topic="payment processing patterns" --security="high" --scale="enterprise"
+*task context-retrieval --topic="user research insights" --timeframe="6-months" --platform="mobile"
 ```
 
+**Advanced Features**:
+
+- Vector-based semantic search across project documents
+- Relevance scoring and ranking algorithms
+- Domain-specific retrieval (architecture, product, testing patterns)
+- Cross-agent context sharing and correlation
+- Real-time retrieval optimization with learning
+
 #### `context-memory-management`
-**Purpose**: Long-term context storage and retrieval
-**When to Use**: Project continuity, knowledge preservation
+
+**Purpose**: Long-term project knowledge storage and intelligent archiving
+**When to Use**: Project continuity, knowledge preservation, cross-session workflows
 
 ```bash
 *task context-memory-management --action="store" --tag="sprint-1"
+*task context-memory-management --action="store" --tag="architecture-v2" --priority="high" --share="dev,qa"
+*task context-memory-management --action="retrieve" --tag="user-research" --restore="previous-session"
+*task context-memory-management --action="list" --filter="payment" --timeframe="3-months"
 ```
+
+**Advanced Capabilities**:
+
+- Persistent context across multiple sessions
+- Intelligent archiving with automatic cleanup
+- Memory lifecycle management (hot/warm/cold storage)
+- Cross-session context restoration and merging
+- Adaptive compression strategies for storage efficiency
 
 ### Utility Components
 
 #### `context-compression`
+
 **Purpose**: Core compression algorithms
 **Features**: Semantic preservation, relevance scoring, intelligent summarization
 
 #### `context-filtering`
+
 **Purpose**: Relevance-based content filtering
 **Features**: Agent-specific filters, priority ranking, noise reduction
+
+#### `semantic-search` (Rich Context Only)
+
+**Purpose**: Advanced search capabilities for finding relevant information
+**Features**: Natural language query processing, contextual understanding, multi-document search, pattern recognition
+
+```bash
+*utils semantic-search --query="React performance optimization patterns"
+*utils semantic-search --query="API rate limiting best practices microservices"
+*utils semantic-search --query="user authentication UX patterns mobile"
+```
+
+#### `context-analysis` (Rich Context Only)
+
+**Purpose**: Quality assessment and optimization recommendations
+**Features**: Information quality metrics, context completeness analysis, relevance scoring, gap identification
+
+```bash
+*utils context-analysis --focus="completeness" --scope="project-wide"
+*utils context-analysis --focus="quality" --agent="architect" --report="detailed"
+*utils context-analysis --focus="performance-metrics" --monitor="enabled"
+```
 
 ## Real-World Scenarios
 
@@ -158,6 +264,7 @@ Context tools prioritize information based on:
 **Challenge**: Complex PRD (15,000 tokens) + Architecture (12,000 tokens) + Multiple agents
 
 **Solution**:
+
 ```bash
 # 1. Analyst completes market research (Large document)
 *agent analyst
@@ -169,7 +276,7 @@ Context tools prioritize information based on:
 *task create-doc  # Builds PRD with focused market data
 
 # 3. Architect gets PRD essentials
-*agent architect  
+*agent architect
 *task context-handoff  # Receives 3,000 token PRD summary
 *task create-doc  # Creates technical architecture
 
@@ -180,6 +287,7 @@ Context tools prioritize information based on:
 ```
 
 **Benefits**:
+
 - 70% reduction in context size across workflow
 - Maintained information quality at each stage
 - Faster agent response times
@@ -190,6 +298,7 @@ Context tools prioritize information based on:
 **Challenge**: Existing codebase analysis + New feature requirements + Multiple technical constraints
 
 **Solution**:
+
 ```bash
 # 1. Architect analyzes existing system
 *agent architect
@@ -212,13 +321,14 @@ Context tools prioritize information based on:
 **Challenge**: Maintaining context across sprints while avoiding information overload
 
 **Solution**:
+
 ```bash
 # End of Sprint 1: Store context
 *agent sm
 *task context-memory-management --action="store" --tag="sprint-1-complete"
 
 # Start of Sprint 2: Retrieve relevant context
-*agent sm  
+*agent sm
 *task context-memory-management --action="retrieve" --tag="sprint-1-complete"
 *task context-optimization --preserve="user-feedback,architecture-decisions"
 
@@ -230,12 +340,13 @@ Context tools prioritize information based on:
 **Challenge**: UX decisions need technical validation while maintaining design focus
 
 **Solution**:
+
 ```bash
 # 1. UX Expert creates design system
 *agent ux-expert
 *task create-doc  # Comprehensive design guidelines
 
-# 2. Architect receives design-focused technical context  
+# 2. Architect receives design-focused technical context
 *agent architect
 *task context-handoff
 # Gets design requirements + technical constraints only
@@ -245,7 +356,7 @@ Context tools prioritize information based on:
 
 # 4. UX Expert receives technical feedback summary
 *agent ux-expert
-*task context-handoff  
+*task context-handoff
 # Gets actionable technical feedback without implementation details
 ```
 
@@ -294,11 +405,13 @@ Context tools prioritize information based on:
 #### Problem: Agent responses are too generic or unfocused
 
 **Symptoms**:
+
 - Agent asks for information you've already provided
 - Responses don't reference previous decisions
 - Generic answers to specific questions
 
 **Solution**:
+
 ```bash
 # Check current context state
 *status --context-details
@@ -313,11 +426,13 @@ Context tools prioritize information based on:
 #### Problem: Important information seems to be lost
 
 **Symptoms**:
+
 - Agent doesn't remember key requirements
 - Previous design decisions ignored
 - Inconsistent responses
 
 **Solution**:
+
 ```bash
 # Retrieve potentially filtered information
 *task context-retrieval --topic="[specific topic]" --include-filtered
@@ -332,11 +447,13 @@ Context tools prioritize information based on:
 #### Problem: Context handoff between agents fails
 
 **Symptoms**:
+
 - Information doesn't transfer properly
 - Agent seems confused about project state
 - Handoff summaries seem incomplete
 
 **Solution**:
+
 ```bash
 # Manual context handoff with validation
 *task context-handoff --validate --detailed
@@ -353,11 +470,13 @@ Context tools prioritize information based on:
 #### Problem: Performance is slow despite context optimization
 
 **Symptoms**:
+
 - Agent responses take longer than expected
 - Context size seems large despite compression
 - Memory usage issues
 
 **Solution**:
+
 ```bash
 # Check actual context size
 *status --context-size
@@ -390,11 +509,13 @@ Context tools prioritize information based on:
 ### Token Usage Guidelines
 
 **Development Workflow Targets**:
+
 - Dev Agent: <2000 tokens (optimal: 1500-1800)
 - Context Handoff: <500 tokens overhead
 - Total Development Context: <2500 tokens
 
 **Planning Workflow Targets**:
+
 - Planning Agents: <8000 tokens (optimal: 6000-7500)
 - Cross-agent handoff: <1000 tokens overhead
 - Total Planning Context: <9000 tokens
@@ -402,6 +523,7 @@ Context tools prioritize information based on:
 ### Optimization Strategies
 
 #### Strategy 1: Layered Context Architecture
+
 ```bash
 # Base layer: Core requirements (always preserved)
 *task context-optimization --preserve="core-requirements" --layer="base"
@@ -414,6 +536,7 @@ Context tools prioritize information based on:
 ```
 
 #### Strategy 2: Role-Based Context Profiles
+
 ```bash
 # Developer profile: Code-focused, minimal business context
 *task context-optimization --profile="developer"
@@ -426,6 +549,7 @@ Context tools prioritize information based on:
 ```
 
 #### Strategy 3: Dynamic Context Scaling
+
 ```bash
 # Scale context based on task complexity
 *task context-optimization --auto-scale --task-complexity="high"
@@ -473,20 +597,23 @@ Context tools prioritize information based on:
 ## Quick Reference Card
 
 ### Essential Commands
+
 ```bash
 *task context-optimization     # Optimize current context
-*task context-handoff         # Transfer between agents  
+*task context-handoff         # Transfer between agents
 *task context-validation      # Check context quality
 *status --context-details     # Show context state
 ```
 
 ### Emergency Context Recovery
+
 ```bash
 *task context-retrieval --restore-all --detail-level="high"
 *task context-validation --check-completeness --fix-issues
 ```
 
 ### Performance Troubleshooting
+
 ```bash
 *status --context-size
 *task context-optimization --aggressive --target-ratio=0.9
@@ -495,4 +622,4 @@ Context tools prioritize information based on:
 
 ---
 
-*For additional support with context engineering, visit our [Discord Community](https://discord.gg/g6ypHytrCB) or check the [main documentation](../README.md).* 
+_For additional support with context engineering, visit our [Discord Community](https://discord.gg/g6ypHytrCB) or check the [main documentation](../README.md)._

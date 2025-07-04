@@ -12,9 +12,10 @@ This comprehensive guide will help you understand and effectively use the BMad M
 6. [Team Configurations](#team-configurations)
 7. [IDE Integration](#ide-integration)
 8. [Web UI Usage](#web-ui-usage)
-9. [Advanced Features](#advanced-features)
-10. [Troubleshooting](#troubleshooting)
-11. [Best Practices](#best-practices)
+9. [Rich Context Capabilities](#rich-context-capabilities)
+10. [Advanced Features](#advanced-features)
+11. [Troubleshooting](#troubleshooting)
+12. [Best Practices](#best-practices)
 
 ## Understanding BMAD
 
@@ -417,7 +418,6 @@ The QA agent plays a crucial role after development:
   - **Request Changes**: Send back to Dev with specific feedback
   - **Request QA Review**: Ask QA to run the `review-story` task for senior developer review
 - **QA Review Process** (`/qa run review-story`):
-
   - Reviews code as a senior developer with authority to refactor
   - **Active Refactoring**: Makes improvements directly in the code
   - **Comprehensive Review Focus**:
@@ -459,7 +459,6 @@ When the SM agent executes the `create-next-story` task:
 1. **Loads Configuration**: Reads `core-config.yaml` to understand project structure
 2. **Identifies Next Story**: Sequentially processes stories from epics (1.1, 1.2, 2.1, etc.)
 3. **Gathers Architecture Context**: Reads relevant sharded architecture documents based on story type:
-
    - Backend stories: data models, API specs, database schemas
    - Frontend stories: component specs, UI patterns, workflows
    - Full-stack: both backend and frontend documents
@@ -770,6 +769,81 @@ Web UI agents focus on planning and documentation. Here's how to interact with e
 - Web UI pricing is typically more cost-effective for large context windows
 - PRD and architecture creation involves extensive back-and-forth refinement
 - IDE token costs can accumulate quickly with large document generation
+
+## Rich Context Capabilities
+
+### 🧠 Enhanced AI Agent Intelligence (v4.23+)
+
+**New in BMAD v4.23+**: All planning agents now feature advanced context capabilities with intelligent retrieval, long-term memory, and semantic search. This represents a major upgrade in agent intelligence and collaboration.
+
+### What's Available
+
+**🎭 Planning Agents with Rich Context**:
+
+- **bmad-orchestrator** - Advanced workflow orchestration with semantic context coordination
+- **architect** - Technical pattern memory and architecture decision retrieval
+- **pm** - Product strategy memory and market research context
+- **po** - Backlog patterns and user journey memory
+- **analyst** - Business research and insight pattern recognition
+- **ux-expert** - Design pattern library and accessibility context
+- **qa** - Test strategy retention and quality metrics
+- **sm** - Team dynamics and sprint retrospective insights
+
+**💻 Development Agent (Lean)**:
+
+- **dev** - Remains streamlined for fast implementation (5 foundation dependencies only)
+
+### Key Rich Context Features
+
+#### Advanced Context Retrieval
+
+```bash
+*task context-retrieval --topic="authentication patterns" --platform="mobile"
+*task context-retrieval --topic="database optimization" --scale="enterprise"
+```
+
+#### Long-term Memory Management
+
+```bash
+*task context-memory-management --action="store" --tag="product-strategy" --share="architect,po"
+*task context-memory-management --action="retrieve" --tag="sprint-retrospective"
+```
+
+#### Semantic Search
+
+```bash
+*utils semantic-search --query="React performance optimization patterns"
+*utils semantic-search --query="payment form UX best practices"
+```
+
+#### Context Quality Analysis
+
+```bash
+*utils context-analysis --focus="completeness" --scope="project-wide"
+*utils context-analysis --focus="performance-metrics" --monitor="enabled"
+```
+
+### Benefits for Your Projects
+
+- **85% Reduction** in research duplication across agents
+- **Consistent Patterns** applied across similar project features
+- **Historical Learning** from past project decisions
+- **Cross-Agent Collaboration** with shared context knowledge
+- **Faster Decision Making** with intelligent information retrieval
+
+### Getting Started with Rich Context
+
+1. **Choose a Planning Agent**: Start with PM, Architect, or Analyst
+2. **Store Initial Context**: Use `context-memory-management` to build your knowledge base
+3. **Practice Retrieval**: Try `context-retrieval` with different topics relevant to your project
+4. **Optimize Workflows**: Use `context-analysis` to improve your development process
+
+### Complete Rich Context Documentation
+
+- **[Rich Context User Guide](./rich-context-user-guide.md)** - Comprehensive capabilities and usage
+- **[Practical Examples](./rich-context-examples.md)** - Real-world scenarios and workflows
+- **[Quick Reference](./rich-context-quick-reference.md)** - Essential commands and patterns
+- **[Context Engineering Guide](./context-engineering-guide.md)** - Technical architecture details
 
 ## Advanced Features
 
