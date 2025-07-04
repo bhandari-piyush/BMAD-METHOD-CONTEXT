@@ -26,3 +26,6 @@ sample-project/*
 .gemini
 .bmad*/.cursor/
 web-bundles/
+
+# Development artifacts - features directory
+bmad-core/features/
