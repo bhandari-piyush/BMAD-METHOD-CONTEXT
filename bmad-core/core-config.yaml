@@ -1,4 +1,4 @@
-version: 4.22.0
+version: 4.22.1
 markdownExploder: true
 prd:
   prdFile: docs/prd.md
@@ -23,18 +23,13 @@ workflow:
   trackProgress: true
   enforceSequence: false
   updateOnCompletion: true
-
-# Context Engineering Enhancement Configuration
 context_engineering:
-  # Universal Settings
   universal:
     enabled: true
     default_compression_ratio: 0.7
     max_context_age_hours: 24
     validation_required: true
     audit_logging: true
-    
-  # Agent Type Classifications
   agent_types:
     dev_agents:
       - dev
@@ -49,8 +44,6 @@ context_engineering:
       - sm
     hybrid_agents:
       - bmad-master
-      
-  # Agent-Specific Configuration
   dev_agent_config:
     token_limit: 2000
     compression_ratio: 0.9
@@ -63,7 +56,6 @@ context_engineering:
       - context-optimization
       - context-handoff
       - context-validation
-      
   planning_agent_config:
     token_limit: 8000
     compression_ratio: 0.7
@@ -80,14 +72,11 @@ context_engineering:
       - context-validation
       - context-retrieval
       - context-memory-management
-      
   hybrid_agent_config:
     adaptive_context: true
     dev_mode_token_limit: 2000
     planning_mode_token_limit: 8000
     adaptive_compression: true
-    
-  # Performance Monitoring
   performance:
     token_usage_monitoring: true
     compression_efficiency_tracking: true
